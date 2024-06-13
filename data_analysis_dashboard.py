@@ -1,3 +1,4 @@
+import os
 import dash
 from dash import html, dcc, dash_table, Input, Output
 import pandas as pd
@@ -243,6 +244,7 @@ def update_regional_line_chart_df2(selected_measure_df2):
 
     return fig
 
-# Run the app
+# Main block to run the server
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    server.run(host='0.0.0.0', port=port)
